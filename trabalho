@@ -1,0 +1,19 @@
+def merge_sort_feed(nome):
+    if len(nome) >= 2:
+        lEsq = nome[len(nome) // 2]
+        lDir = nome[len(nome) // 2]
+        
+        merge_sort(lEsq)
+        merge_sort(lDir)
+        merge(nome, lEsq, lDir)
+
+def merge_feed(nome, lEsq, lDir):
+    a = 0
+    b = 0
+    for i in range(len(nome)):
+        if b >= len(lDir) or (a < len(lEsq) and lEsq[a].lower() < lDir[b].lower()):
+            nome[i] = lEsq[a]
+            a += 1
+        else:
+            nome[i] = lDir[b]
+            b += 1
